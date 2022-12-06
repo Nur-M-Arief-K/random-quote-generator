@@ -16,9 +16,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background-position: top;
-    animation: move-background 3.5s infinite alternate;
 }
 
 .quote-container {
@@ -116,12 +113,6 @@ button:active {
 @keyframes rotate {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-/* to move the background in body */
-@keyframes move-background {
-    from {background-position: top;}
-    to {background-position: bottom;}
 }
 
 /* media query */
