@@ -23,11 +23,11 @@ function complete() {
 function newQuote() {
     loading();
     //pick a random quotes from apiQuotes array
-    const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)]
+    const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
     authorText.textContent = quote.author;
     //check if author field is blank and replace it with "unknown"
     if (!quote.author) {
-        authorText.textContent = "Unknown"
+        authorText.textContent = "Unknown";
     } else {
         authorText.textContent = quote.author;
     };
@@ -51,7 +51,19 @@ async function getQuotes() {
         apiQuotes = await response.json();
         newQuote();
     } catch (error) {
-        
+        if (error.message = "Failed to fetch") {
+            quoteText.textContent = "Thee shouldst checketh thy int'rnet connectionth";
+            authorText.textContent = "The Developer";
+            twitterBtn.hidden = true;
+            newQuoteBtn.hidden = true;
+            complete();
+        } else {
+            quoteText.textContent = "Unf'rtunately soemthing lacking valor hast been occur'd";
+            authorText.textContent = "The Developer";
+            twitterBtn.hidden = true;
+            newQuoteBtn.hidden = true;
+            complete();
+        }
     }
 };
 
